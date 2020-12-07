@@ -9,16 +9,33 @@ const Theme = {
 };
 
 const checkboxReference = document.getElementById('theme-switch-toggle');
-const body = document.querySelector('body');
+const bodyRef = document.querySelector('body');
 
 const onDarkTheme = () => {
-    body.classList.add('dark-theme');
-    body.classList.toggle('light-theme');
+  bodyRef.classList.remove('light-theme');
+  bodyRef.classList.toggle('dark-theme');
 }
 
 const onLightTheme = () => {
-    body.classList.add('light-theme');
-    body.classList.toggle('dark-theme');
+  bodyRef.classList.remove('dark-theme');
+  bodyRef.classList.toggle('light-theme');
+}
+
+// const onDarkTheme = () => {
+//   bodyRef.classList.contains('light-theme') &&
+//   bodyRef.classList.toggle('dark-theme');
+// };
+
+// const onLightTheme = () => {
+//   bodyRef.classList.contains('dark-theme') && 
+//   bodyRef.classList.toggle('light-theme');
+// };
+
+
+if (localStorage.getItem('theme')) {
+  const checked = JSON.parse(localStorage.getItem('theme'));
+  checkboxReference.checked = checked;
+  checked ? onDarkTheme() : onLightTheme();
 }
 
 const checkboxState = event => {
@@ -27,15 +44,9 @@ const checkboxState = event => {
 }
 checkboxReference.addEventListener('change', checkboxState);
 
-if (localStorage.getItem('theme')) {
-  const checked = JSON.parse(localStorage.getItem('theme'));
-  checkboxReference.checked = checked;
-  checked ? onDarkTheme() : onLightTheme();
-}
 
-// ====================================================
 
 const markup = cardTemplate(menu)
 
-const list = document.querySelector('.js-menu');
+const list = document.querySelector('.menu');
 list.insertAdjacentHTML('beforeend', markup);
