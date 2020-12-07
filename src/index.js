@@ -12,24 +12,16 @@ const checkboxReference = document.getElementById('theme-switch-toggle');
 const bodyRef = document.querySelector('body');
 
 const onDarkTheme = () => {
+  bodyRef.classList.contains('light-theme') &&
   bodyRef.classList.remove('light-theme');
-  bodyRef.classList.toggle('dark-theme');
-}
+  bodyRef.classList.add('dark-theme');
+};
 
 const onLightTheme = () => {
+  bodyRef.classList.contains('dark-theme') &&
   bodyRef.classList.remove('dark-theme');
-  bodyRef.classList.toggle('light-theme');
-}
-
-// const onDarkTheme = () => {
-//   bodyRef.classList.contains('light-theme') &&
-//   bodyRef.classList.toggle('dark-theme');
-// };
-
-// const onLightTheme = () => {
-//   bodyRef.classList.contains('dark-theme') && 
-//   bodyRef.classList.toggle('light-theme');
-// };
+  bodyRef.classList.add('light-theme');
+};
 
 
 if (localStorage.getItem('theme')) {
