@@ -1,7 +1,8 @@
-<li class="menu__item">
+
   {{#each this}}
+  <li class="menu__item"></li>
     <article class="card">
-       <img class="card__image" id={{id}} src={{image}} alt={{name}}/>
+       <img class="card__image" id="{{id}}" src="{{image}}" alt="{{name}}"/>
        <div class="card__content">
             <h2 class="card__name">{{name}}</h2>
 
@@ -29,6 +30,6 @@
         </button>
 
     </article>
-    
+    </li>
   {{/each}}
-</li>
+

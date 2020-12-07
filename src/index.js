@@ -8,7 +8,6 @@ const Theme = {
   DARK: 'dark-theme',
 };
 
-
 const checkboxReference = document.getElementById('theme-switch-toggle');
 const body = document.querySelector('body');
 
@@ -36,7 +35,7 @@ if (localStorage.getItem('theme')) {
 
 // ====================================================
 
+const markup = cardTemplate(menu)
 
-
-const list = document.querySelector('.menu js-menu');
-list.innerHTML = cardTemplate(menu);
+const list = document.querySelector('.js-menu');
+list.insertAdjacentHTML('beforeend', markup);
