@@ -12,13 +12,11 @@ const checkboxReference = document.getElementById('theme-switch-toggle');
 const bodyRef = document.querySelector('body');
 
 const onDarkTheme = () => {
-  bodyRef.classList.contains('light-theme') &&
   bodyRef.classList.remove('light-theme');
   bodyRef.classList.add('dark-theme');
 };
 
 const onLightTheme = () => {
-  bodyRef.classList.contains('dark-theme') &&
   bodyRef.classList.remove('dark-theme');
   bodyRef.classList.add('light-theme');
 };
@@ -34,11 +32,11 @@ const checkboxState = event => {
     localStorage.setItem('theme', JSON.stringify(event.target.checked));
     event.target.checked ? onDarkTheme() : onLightTheme()
 }
+
 checkboxReference.addEventListener('change', checkboxState);
 
 
 
 const markup = cardTemplate(menu)
-
 const list = document.querySelector('.menu');
 list.insertAdjacentHTML('beforeend', markup);
